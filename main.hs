@@ -1,7 +1,7 @@
 import Data.List
 
 main = do
-    let s = State False [('a', State False [('b', State False [('c', State True [])])])]
+    let s = State False [('a', State False [('c', State True []), ('b', State False [('c', State True [])])])]
     print "Please enter a string to test."
     str <- getLine
     print $ eval str s
