@@ -29,7 +29,7 @@ extJust (Just a) = a
 
 eval :: String -> State -> Bool
 eval str state = do
-    if(length str == 0) then
+    if (length str == 0) then
         term state
     else
         let new = state ==> (str !! 0)
