@@ -28,9 +28,7 @@ extJust :: Maybe a -> a
 extJust (Just a) = a
 
 eval :: String -> State -> Bool
-eval str state = do
-    if (length str == 0) then
-        term state
-    else
-        let new = state ==> (str !! 0)
-        in (not (isEmpty new)) && (eval (tail str) (extJust new))
+eval str state = if (length str == 0)
+  then term state
+  else let new = state ==> (str !! 0)
+           in (not (isEmpty new)) && (eval (tail str) (extJust new))
