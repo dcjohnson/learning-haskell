@@ -2,12 +2,10 @@ main :: IO ()
 main = do
   print $ get test
 
-  
 test :: Maybe Integer
 test = do
   x <- may 6
   may x
-
 
 may :: Integer -> Maybe Integer
 may i = Just i
