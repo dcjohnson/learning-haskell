@@ -1,11 +1,11 @@
 main :: IO ()
 main = do
-  print $ get test
+  print $ get $ test 9
 
-test :: Maybe Integer
-test = do
-  x <- may 6
-  may x
+test :: Integer -> Maybe Integer
+test i = do
+  x <- may i
+  may $ x + 1
 
 may :: Integer -> Maybe Integer
 may i = Just i
