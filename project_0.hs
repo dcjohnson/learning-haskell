@@ -17,7 +17,7 @@ main = do
   print $ ((shiftL (fromIntegral (defaultTestMemory1 !! 2)) 8) :: Word32)
   print $ (Bs.pack [65 | _ <- [1..10]])
   print $ Bs.split 65 (Bs.pack abString)
-  print $ fromJust $ readWord32FromMemory defaultTestMemory1 20
+  print $ fromJust $ readWord32FromMemory defaultTestMemory1 5
   memory <- readFileToMemory "test.txt"
   Bs.putStr $ Bs.pack memory
   print $ fromJust $ readWord32FromMemory memory 11
