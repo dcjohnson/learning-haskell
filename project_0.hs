@@ -46,5 +46,5 @@ readWord32FromMemory m i = do
 
 safeIndex :: Memory -> Int -> Maybe Word8
 safeIndex m i = do
-  if ((i < 0) || (i >= (length m))) then Nothing
+  if (i < 0) || (i >= (length m)) then Nothing
   else Just $ m !! i
