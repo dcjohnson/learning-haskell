@@ -1,10 +1,7 @@
 main :: IO ()
-main = foldl (\a c -> do
-                 a
-                 c) (return ()) ([io | x <- [1..100], let io = if x `mod` 3 == 0 && x `mod` 5 == 0
-                                                               then putStrLn"fizzbuzz"
-                                                               else if x `mod` 3 == 0
-                                                                    then putStrLn "fizz"
-                                                                    else if x `mod` 5 == 0
-                                                                         then putStrLn "buzz"
-                                                                         else return ()])
+main = foldl (>>) (return ()) ([io | x <- [1..100], let io = case (x `mod` 3, x `mod` 5) of
+                                                               (0, 0) -> putStrLn "fizzbuzz"
+                                                               (0, _) -> putStrLn "fizz"
+                                                               (_, 0) -> putStrLn "buzz"
+                                                               _ -> return ()])
+
